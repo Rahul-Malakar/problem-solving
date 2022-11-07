@@ -13,9 +13,9 @@ using namespace std;
 #define vll vector<long long>
 #define si set<int>
 #define sll set<int>
+#define mi map<int,int>
 
 #define forl(i,n) for(int i=0; i<n; i++)
-#define forle(i,n) for(int i=0; i<=n; i++)
 
 #define sorti(v) sort(v.begin(), v.end())
 
