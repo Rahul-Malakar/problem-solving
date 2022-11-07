@@ -1,0 +1,1 @@
+print(Str[k],end="")
