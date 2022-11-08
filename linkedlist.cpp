@@ -16,17 +16,17 @@ public:
     }
 };
 
-void insertattail(node *&head, int val)
+void insertattail(node *&p, int val)
 {
     node *n = new node(val);
 
-    if (head == NULL)
+    if (p == NULL)
     {
-        head = n;
+        p = n;
         return;
     }
 
-    node *temp = head;
+    node *temp = p;
     while (temp->next != NULL)
     {
         temp = temp->next;
