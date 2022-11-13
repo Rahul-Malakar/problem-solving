@@ -1,1 +1,2 @@
-tempdividend=tempdividend-tempdivisor;
+;
+    // t->next=p;
