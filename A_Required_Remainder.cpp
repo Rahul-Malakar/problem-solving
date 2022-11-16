@@ -1,32 +1,43 @@
+//RAHUL MALAKAR 2112022
+
 #include <bits/stdc++.h>
-#define ll long long
-#define ull unsigned long long
-#define fastread() (ios_base::sync_with_stdio(false), cin.tie(NULL));
-// int M = 1000000007;
-int M = 100000007;
 using namespace std;
+
+#define ll long long
+#define ld long double
+
+#define sp setprecision
+#define eb emplace_back
+
+#define vi vector<int>
+#define vll vector<long long>
+#define si set<int>
+#define sll set<int>
+
+
+#define forl(i,n) for(int i=0; i<n; i++)
+#define forle(i,n) for(int i=0; i<=n; i++)
+
+#define sorti(v) sort(v.begin(), v.end())
+
+
 int main()
 {
-    fastread();
-    ull t;
+
+    ios_base::sync_with_stdio(false);
+
+    ll t;
     cin >> t;
-    while (t--)
+    forl(i,t)
     {
-        ull x, y, n,k;
-        cin >> x >> y >> n;
-        ull ans=0, max=0;
-        for (k = n; k > 0; k--)
-        {
-            if (k % x == y)
-            {
-                ans = k;
-                if (ans > max)
-                {
-                    max = ans;
-                }
-            }
+        ll a,b,c; cin>>a>>b>>c;
+        int temp = a * (c/a);
+        if(temp+b>c){
+            cout<<temp-(a-b)<<endl;
         }
-        cout << max<< endl;
+        else{
+            cout<<temp+b<<endl;
+        }
     }
 
     return 0;
