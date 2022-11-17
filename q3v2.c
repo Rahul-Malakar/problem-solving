@@ -169,7 +169,7 @@ int main()
     int c = 1;
     while (c)
     {
-        printf("\n1.create\t\t2.del(key)\n3.dFirst\t\t4.dLast\n5.ins(data)\t\t6.iFirst(data)\n7.iLast(data)\t\t8.print\n0.exit\n");
+        printf("\n1.create\n2.del(key)\n3.dFirst\n4.dLast\n5.ins(data)\n6.iFirst(data)\n7.iLast(data)\n8.print\n0.exit\n");
         int op, key;
         printf("Enter your choice : ");
         scanf("%d", &op);
