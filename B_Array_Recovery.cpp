@@ -33,7 +33,7 @@ int main()
                 flag = 1;
                 break;
             }
-            
+
             else
             {
                 an[i] = ((ao[i] + an[i - 1]));
@@ -48,7 +48,8 @@ int main()
             for (auto it : an)
             {
                 cout << it << " ";
-            }cout<<endl;
+            }
+            cout<<endl;
         }
 
     }
