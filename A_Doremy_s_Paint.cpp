@@ -19,7 +19,6 @@ using namespace std;
 #define forle(i,n) for(int i=0; i<=n; i++)
 
 #define sorti(v) sort(v.begin(), v.end())
-#define  
 
 int main()
 {
