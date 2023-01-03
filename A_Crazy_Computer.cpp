@@ -40,6 +40,7 @@ int main()
     vll ans;
     ll pos=0;
     for(ll i =0; i<v.size()-1; i++){
+        
         pos=i;
         ans.eb(v[i]);
         if(v[i]-v[i+1]>b){
