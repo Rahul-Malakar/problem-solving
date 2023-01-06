@@ -31,17 +31,15 @@ int main()
     forl(i,t)
     {
         ll n,q; cin>>n>>q;
-        ll sum=0, os=0, es=0, ec=0, oc=0;
+        ll sum=0, ec=0, oc=0;
         for(ll i=0; i<n; i++){
             ll a; cin>>a;
             if(a&1){
                 oc++;
-                os+=a;
                 sum+=a;
             }
             else{
                 ec++;
-                es+=a;
                 sum+=a;
             }
         }
