@@ -24,7 +24,7 @@ int main()
 
     ll t;
     cin >> t;
-    forl(i,t)
+    while(t--)
     {
         
     }
