@@ -42,7 +42,7 @@ int main()
             y.push_back('0');
         }
         cout<<x<<" "<<y<<endl;
-                
+        //just testing
     }
 
     return 0;
