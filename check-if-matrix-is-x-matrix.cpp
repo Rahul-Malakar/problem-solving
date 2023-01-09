@@ -1,4 +1,4 @@
-// https://leetcode.com/problems/check-if-matrix-is-x-matrix/submissions/
+https://leetcode.com/problems/check-if-matrix-is-x-matrix/submissions/
 
 class Solution {
 public:
