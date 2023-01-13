@@ -18,11 +18,11 @@ using namespace std;
 
 int main()
 {
-    int t;
+    ll t;
     cin >> t;
     while (t--)
     {
-        int ans, x, y;
+        ll ans, x, y;
         cin >> x >> y;
         if ((x * y - x - y) < 0)
             cout << 2 * x * y - x - y << endl;

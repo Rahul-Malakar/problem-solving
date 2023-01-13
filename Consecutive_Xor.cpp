@@ -22,12 +22,28 @@ int main()
     cin >> tc;
     while (tc--)
     {
-        int a, b;
-        cin >> a >> b;
-        if ((a * b - a - b) < 0)
-            cout << 2 * a * b - a-b << endl;
+        ll a;
+        cin >> a;
+        ll v[a];
+        ll f = 1;
+        ll ins = 0;
+        for (ll i = 0; i < a; i++)
+        {
+            cin >> v[i];
+            ins ^= v[i];
+        }
+        ll fin = a;
+        if (ins)
+            fin -= 1;
+        if (fin == a - 1)
+        {
+            if (fin % 2 == 1)
+                f = 0;
+        }
+        if (f)
+            cout << "YES" << endl;
         else
-            cout << a * b - a-b << endl;
+            cout << "NO" << endl;
     }
     return 0;
 }
