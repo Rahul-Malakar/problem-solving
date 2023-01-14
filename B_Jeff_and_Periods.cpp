@@ -1,41 +1,62 @@
-// RAHUL MALAKAR 2112022
-
-#include <bits/stdc++.h>
+#include <iostream>
+#include <map>
+#include <vector>
 using namespace std;
 
-#define ll long long
-#define ld long double
-
-#define sp setprecision
-#define eb emplace_back
-
-#define vi vector<int>
-#define vll vector<long long>
-#define si set<int>
-#define sll set<int>
-
-#define forl(i, n) for (int i = 0; i < n; i++)
-#define forle(i, n) for (int i = 0; i <= n; i++)
-
-#define sorti(v) sort(v.begin(), v.end())
-
-int main()
-{
-
-    ios_base::sync_with_stdio(false);
-
-    ll t;
-    cin >> t;
-    vll v;
-    sll s;
-    forl(i, t)
-    {
-        ll b;
-        cin >> b;
-        s.insert(b);
-        v.eb(b);
+int main() {
+    int n;
+    cin >> n;
+    vector<int> a(n);
+    for (int i = 0; i < n; i++) {
+        cin >> a[i];
     }
-    
-
+    map<int, vector<int>> freq;
+    for (int i = 0; i < n; i++) {
+        freq[a[i]].push_back(i);
+    }
+    int t = 0;
+    for (auto x : freq) {
+        if(x.second.size()==1){
+            t++;
+        }else{
+            bool is_arithmetic = true;
+            int common_diff = 0;
+            for (int i = 1; i < x.second.size(); i++) {
+                if (i == 1) {
+                    common_diff = x.second[i] - x.second[i - 1];
+                } else {
+                    if (x.second[i] - x.second[i - 1] != common_diff) {
+                        is_arithmetic = false;
+                        break;
+                    }
+                }
+            }
+            if (is_arithmetic) {
+                t++;
+            }
+        }
+    }
+    cout << t << endl;
+    for (auto x : freq) {
+        if(x.second.size()==1){
+            cout << x.first << " " << 0 << endl;
+        }else{
+            bool is_arithmetic = true;
+            int common_diff = 0;
+            for (int i = 1; i < x.second.size(); i++) {
+                if (i == 1) {
+                    common_diff = x.second[i] - x.second[i - 1];
+                } else {
+                    if (x.second[i] - x.second[i - 1] != common_diff) {
+                        is_arithmetic = false;
+                        break;
+                    }
+                }
+            }
+            if (is_arithmetic) {
+                cout << x.first << " " << common_diff << endl;
+            }
+        }
+    }
     return 0;
 }
