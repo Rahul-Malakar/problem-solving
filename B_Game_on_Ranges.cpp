@@ -26,24 +26,23 @@ int main()
     cin >> t;
     while(t--)
     {
-        int a; cin>>a;
-        int left[a], right[a];
-        map<pair<int,int>,int> mp;
-        for(int i=0; i<a; i++){
+        ll a; cin>>a;
+        ll left[a], right[a];
+        map<pair<ll,ll>,ll> mp;
+        for(ll i=0; i<a; i++){
             cin>>left[i]>>right[i];
-
-            mp[{left[i],right[i]}]++;
+            mp[{left[i],right[i]}]=1;
         }
-        for(int i =0; i<a; i++){
-            for(int j=left[i]; j<right[i]; j++){
+        for(ll i =0; i<a; i++){
+            for(ll j=left[i]; j<=right[i]; j++){
                 if(left[i]==right[i]){
-                    cout<<left[i]<<" "<<right[i]<<" "<<left[i]<<endl;
-                }
-                if(mp[{left[i],j-1}]==1 && mp[{j+1,right[i]}] ){
                     cout<<left[i]<<" "<<right[i]<<" "<<j<<endl;
                 }
-                if(j==left[i] && mp[{j+1,right[i]}] || j==right[i] && mp[{left[i],j-1}]){
-                    cout<<left[i]<<" "<<right<<" "<<j<<endl;
+                if(mp[{left[i],j-1}]==1 && mp[{j+1,right[i]}]==1 ){
+                    cout<<left[i]<<" "<<right[i]<<" "<<j<<endl;
+                }
+                if(j==left[i] && mp[{j+1,right[i]}]==1 || j==right[i] && mp[{left[i],j-1}]==1){
+                    cout<<left[i]<<" "<<right[i]<<" "<<j<<endl;
                 }
             }
         }
