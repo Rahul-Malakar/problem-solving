@@ -26,15 +26,36 @@ int main()
     cin >> t;
     while(t--)
     {
-        int a,b; cin>>a>>b;
-        vll v(a+1,0);
+        ll a,b; cin>>a>>b;
+        vll v(a);
+        map <ll , ll> mp;
         for(int i=0; i<a; i++){
-            int c; cin>>c;
-            v[c]++;
+            cin>>v[i];
+            mp[v[i]]++;
         }
-        for(auto it:v){
-            cout<<it<<endl;
+        priority_queue<ll> table;
+        priority_queue<ll> guest;
+        vll c(b);
+        for(ll i = 0; i < b; ++i){
+            cin >> c[i];
+            table.push(c[i]);
         }
+        for(auto i : mp){
+            guest.push(i.second);
+        }
+        ll ans = 0;
+        while(!table.empty()){
+            if(guest.empty()) break;
+            ll x = table.top();
+            ll y = guest.top();
+            guest.pop();
+            table.pop();
+            ans += min(x , y);
+            if(x < y){
+                guest.push(y - x);
+            }
+        }
+        cout << ans << endl;
     }
 
     return 0;

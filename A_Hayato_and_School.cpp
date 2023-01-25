@@ -1,4 +1,4 @@
-//RAHUL MALAKAR 2112022
+// RAHUL MALAKAR 2112022
 
 #include <bits/stdc++.h>
 using namespace std;
@@ -16,41 +16,39 @@ using namespace std;
 
 #define sorti(v) sort(v.begin(), v.end())
 
-
 int main()
 {
-    
+
     ios_base::sync_with_stdio(false);
 
     ll t;
     cin >> t;
-    while(t--)
+    while (t--)
     {
-        int a; cin>>a;
-        vll v;
-        for(int i=0 ; i<a; i++){
-            int b; cin>>b;
-            v.eb(b);
+        int n;
+        cin >> n;
+        vector<int> o, e;
+        for (int i = 0; i < n; i++)
+        {
+            int x;
+            cin >> x;
+            if (x & 1)
+                o.push_back(i + 1);
+            else
+                e.push_back(i + 1);
         }
-        int flag=0, x=0,y=0,z=0;
-        for(int i=0; i<a; i++){
-            for(int j=i+1; j<a; j++){
-                for(int k=j+1; k<a; k++){
-                    if((v[i]+v[j]+v[k])&1){
-                        flag=1;
-                        x=i+1; y=j+1; z=k+1;
-                        break;
-                    }
-                }if(flag){break;}
-            }if(flag){break;}
+        if (o.size() >= 3)
+        {
+            cout << "YES\n";
+            cout << o[0] << ' ' << o[1] << ' ' << o[2] << '\n';
         }
-        if(flag){
-            cout<<"YES"<<endl;
-            cout<<x<<" "<<y<<" "<<z<<endl;
+        else if (o.size() >= 1 && e.size() >= 2)
+        {
+            cout << "YES\n";
+            cout << o[0] << ' ' << e[0] << ' ' << e[1] << '\n';
         }
-        else{
-            cout<<"NO"<<endl;
-        }
+        else
+            cout << "NO\n";
     }
 
     return 0;

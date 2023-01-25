@@ -26,12 +26,18 @@ int main()
     cin >> t;
     while(t--)
     {
-        int a; cin>>a;
-        vll v;
-        for(int i=0; i<a; i++){
-            int b; cin>>b;
-            v.eb(b);
+        ll a; cin>>a;
+        vll v(a+1);
+        for(ll i=0; i<a; i++){
+            ll b; cin>>b;
+            v[i+1]=v[i]+b;
         }
+        
+        ll ans=1;
+        for(ll i=1; i<a; i++){
+            ans=max(ans,__gcd(v[i],v[a]));
+        }
+        cout<<ans<<endl;
         
     }
 
