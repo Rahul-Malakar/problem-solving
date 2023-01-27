@@ -26,10 +26,21 @@ int main()
     while (t--)
     {
         int a; cin>>a;
+        vi v;
         for(int i=0; i<a; i++){
             int b; cin>>b;
             v.eb(b);
         }
+        int sum=0, maxi=0, m=0;
+        for(int i=0; i<a; i++){
+            sum+=v[i];
+            maxi=sum/(i+1);
+            if(sum%(i+1)){maxi++;}
+            m=max(maxi,m);
+
+        }
+        cout<<m<<endl;
+
     }
 
     return 0;
