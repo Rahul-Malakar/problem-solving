@@ -15,6 +15,8 @@ using namespace std;
 #define sll set<int>
 
 #define sorti(v) sort(v.begin(), v.end())
+#define sortd(v) sort(v.rbegin(), v.rend())
+
 
 int main()
 {
@@ -37,7 +39,6 @@ int main()
             maxi=sum/(i+1);
             if(sum%(i+1)){maxi++;}
             m=max(maxi,m);
-
         }
         cout<<m<<endl;
 

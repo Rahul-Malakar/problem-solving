@@ -22,41 +22,18 @@ int main()
     
     ios_base::sync_with_stdio(false);
 
-    ll t;
-    cin >> t;
-    ll mod=1000000007;
-    while(t--)
-    {
-        ll a; cin>>a;
-        string s1, s2; cin>>s1>>s2;
-        ll ano=0, zz=0, oo=0;
-        vi ans;
-        for(ll i=0; i<a; i++){
-            if((s1[i]=='0' && s2[i]=='1') || (s1[i]=='1' && s2[i]=='0')){
-                ano++;
+    int t; cin>>t;
+    while(t--){
+        int a; cin>>a;
+        string s1,s2; cin>>s1>>s2;
+        int c1=0, c2=0;
+        for(int i=0; i<a; i++){
+            if(s1[i]==s2[i]){
+                c1++;
             }
-            else if((s1[i]=='0' && s2[i]=='0')){
-                ans.eb(2);
+            else{
+                c2++;
             }
-            else if((s1[i]=='1' && s2[i]=='1')){
-                ans.eb(2);
-            }
-        }
-        
-        if(ano%2==0){
-            if(ano!=0){
-                ans.eb(ano);
-            }
-            ll pr=1;
-            for(auto it:ans){
-                pr*=it;
-                pr=pr%mod;
-            }
-            cout<<pr%mod<<endl;
-        }
-        else{
-            cout<<0<<endl;
-
         }
         
     }

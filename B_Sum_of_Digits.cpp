@@ -1,34 +1,44 @@
 #include <bits/stdc++.h>
 using namespace std;
 
-int numberSum (int num) {
-	int count = 0;
-	while (num > 0) {
-		count += num % 10;
-		num /= 10;
+int barbar(int tot)
+{
+	int sum=0;
+	while(tot>0){
+		sum+=tot%10;
+		tot/=10;
 	}
-	return count;
+	return sum;
 }
- 
-int main () {
+
+int main()
+{
 	string s;
 	cin >> s;
-	if (s.size() == 1) { 
-		cout << "0"; 
+	int sum = 0;
+	if (s.size()==1)
+	{
+		cout<<0<<endl;
 		return 0;
 	}
-	int sum = 0;
-	for (int i = 0; i < s.size(); ++i) {
+
+	for (int i = 0; i < s.size(); i++)
+	{
 		sum += s[i] - '0';
 	}
-    
-	int count = 1;
-	while (sum > 9) {
-		sum = numberSum (sum);
-		++count;
+	if (sum <10)
+	{
+		cout<<1<<endl;
 	}
- 
-	cout << count;
- 
- 
+	else
+	{
+		int count=1;
+		while(sum>9){
+			count++;
+			sum = barbar(sum);
+		}
+		cout<<count<<endl;
+
+	}
+	return 0;
 }

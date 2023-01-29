@@ -26,21 +26,25 @@ int main()
     cin >> t;
     while(t--)
     {
-        int a; cin>>a;
+        ll a; cin>>a;
         string s; cin>>s;
-        int first=0, longest=0;
+        ll first=0, longest=0;
         
-        for(int i=0; i<a && s[i]!='0'; i++){
-            first++;
+        for(ll i=0; i<a; i++){
+            
+            if(s[i]=='0'){
+                break;
+            }first++;
+
         }
-        int news=0;
-        for(int i=first; i<a; i++){
+        ll news=0;
+        for(ll i=first; i<a; i++){
             if(s[i]=='1' && s[i+1]=='1'){
                 news++;
                 
             }
             if(s[i]=='0'){
-                longest=max(news,longest);
+                longest=max(news+1,longest);
                 news=0;
             }
         }

@@ -1,80 +1,59 @@
-// Rahul Malakar 2112022
-
 #include <bits/stdc++.h>
 using namespace std;
-
 int main()
 {
 
     ios_base::sync_with_stdio(false);
 
-    int a = 0, b = 0, c = 0;
-    for (int i = 0; i < 3; i++)
-    {
-        string s;
-        cin >> s;
-        if (s == "A>B" || s == "B<A")
-        {
-            a++;
-            b--;
+    vector<int> v(6,0);
+    for(int i=0; i<3; i++){
+        string s; cin>>s;
+        if(s=="A>B" || s=="B<A"){
+            v[0]++;
         }
-        else
-        {
-            b++;
-            a--;
+        else if(s=="A<B" || s=="B>A"){
+            v[1]++;
         }
-        if (s == "B>C" || s == "C<B")
-        {
-            b++;
-            c--;
+        else if(s=="B>C" || s=="C<B"){
+            v[2]++;
         }
-        else
-        {
-            b--;
-            c++;
+        else if(s=="C>B" || s=="B<C"){
+            v[3]++;
         }
-        if (s == "C>A" || s == "A<C")
-        {
-            c++;
-            a--;
+        else if(s=="A<C" || s=="C>A"){
+            v[4]++;
         }
-        else
-        {
-            a++;
-            c--;
+        else if(s=="C<A" || s=="A>C"){
+            v[5]++;
         }
     }
-    if (a == 0 && b == 0 && c == 0)
-    {
-        cout << "Impossible";
+
+    if(v[0]==1 && v[2]==1 && v[4]==1){
+        cout<<"ACB"<<endl;
     }
-    else
-    {
-        if (a == 0 && b == 2)
-        {
-            cout << "CAB";
-        }
-        else if (b == 0 && a == 2)
-        {
-            cout << "CBA";
-        }
-        else if (b == 0 && c == 2)
-        {
-            cout << "ABC";
-        }
-        else if (c == 0 && b == 2)
-        {
-            cout << "ACB";
-        }
-        else if (c == 0 && a == 2)
-        {
-            cout << "BCA";
-        }
-        else if (a == 0 && c == 2)
-        {
-            cout << "BAC";
-        }
+    else if(v[0]==1 && v[2]==1 && v[5]==1){
+        cout<<"CBA"<<endl;
     }
+    else if(v[0]==1 && v[3]==1 && v[4]==1){
+        cout<<"BAC"<<endl;
+    }
+    else if(v[0]==1 && v[3]==1 && v[5]==1){
+        cout<<"BCA"<<endl;
+    }
+    else if(v[1]==1 && v[2]==1 && v[4]==1){
+        cout<<"ACB"<<endl;
+    }
+    else if(v[1]==1 && v[2]==1 && v[5]==1){
+        cout<<"CAB"<<endl;
+    }
+    else if(v[1]==1 && v[3]==1 && v[4]==1){
+        cout<<"ABC"<<endl;
+    }
+    else if(v[1]==1 && v[3]==1 && v[5]==1){
+        cout<<"ABC"<<endl;
+    }
+    else{cout<<"IMPOSSIBLE"<<endl;}
+
 
     return 0;
 }

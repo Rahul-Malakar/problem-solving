@@ -27,7 +27,14 @@ int main()
     cin >> t;
     while(t--)
     {
-        
+        ll a; cin>>a;
+        if(a&1){
+            cout<<-1<<endl;
+        }
+        else{
+            cout<<1<<" "<<a/2<<endl;
+        }
+
     }
 
     return 0;
