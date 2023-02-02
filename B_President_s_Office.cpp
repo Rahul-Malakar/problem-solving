@@ -1,31 +1,57 @@
-#include<bits/stdc++.h>
+//RAHUL MALAKAR 2112022
+
+#include <bits/stdc++.h>
 using namespace std;
 
-int arr[30];
-int ar[110][110];
- 
-int main() {
-    int N, M, pres;
-    char c;
-    cin>>N>>M>>c;
-    pres = c-'A'+1;
-    for (int i=1; i<=N; i++) {
-        for (int k=1; k<=M; k++) {
-            cin>>c;
-            if (c == '.') ar[i][k] = 0;
-            else ar[i][k] = c-'A'+1;
+#define ll long long
+#define ld long double
+
+#define sp setprecision
+#define eb emplace_back
+
+#define vi vector<int>
+#define vll vector<long long>
+#define si set<int>
+#define sll set<int>
+
+#define sorti(v) sort(v.begin(), v.end())
+#define sortd(v) sort(v.rbegin(), v.rend())
+
+
+int main()
+{
+    
+    ios_base::sync_with_stdio(false);
+
+    ll a,b; char c;
+    cin>>a>>b; cin>>c;
+    ll arr[110][110];
+    
+    for(ll i=1; i<=a; i++){
+        for(ll j=1; j<=b; j++){
+            char d; cin>>d;
+            if(d=='.'){
+                arr[i][j]=0;
+            }
+            else{
+                arr[i][j]=d-'0';
+            }
         }
     }
 
-    for (int i=1; i<=N; i++) {
-        for (int k=1; k<=M; k++) {
-            if (ar[i][k] != 0 && ar[i][k] != pres && (ar[i-1][k] == pres || ar[i+1][k] == pres
-                || ar[i][k-1] == pres || ar[i][k+1] == pres) ) arr[ ar[i][k] ] = 1;
-        }
+    set<ll> s;
+    for(ll i=1; i<=a; i++){
+        for(ll j=1; j<=b; j++){
+            if(arr[i][j]==c-'0'){
+                if(arr[i-1][j]!=0 && arr[i-1][j]!=c-'0'){s.insert(arr[i-1][j]);}
+                if(arr[i+1][j]!=0 && arr[i+1][j]!=c-'0'){s.insert(arr[i+1][j]);}
+                if(arr[i][j-1]!=0 && arr[i][j-1]!=c-'0'){s.insert(arr[i][j-1]);}
+                if(arr[i][j+1]!=0 && arr[i][j+1]!=c-'0'){s.insert(arr[i][j+1]);}
+            }
+        }     
     }
-    
-    int resp = 0;
-    for (int i=1; i<=26; i++) resp += arr[i];
-    cout<<resp;
+    cout<<s.size()<<endl;
+
+
     return 0;
 }

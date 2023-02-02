@@ -13,8 +13,9 @@ int main(){
     arr[a]=b;
     for(int i=0; i<a; i++){
         cin>>arr[i];
-    }
+    } 
     sort(arr, arr+a);
+    
     int arrmax=2*arr[0];
     for(int i=0; i<a; i++){
         if(arrmax<arr[i+1]-arr[i]){
