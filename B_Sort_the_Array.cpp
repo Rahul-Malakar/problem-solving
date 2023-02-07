@@ -20,7 +20,6 @@ int main()
     }
     vector<int> sv = v;
     sort(sv.begin(), sv.end());
-    
 
     if (sv == v)
     {
@@ -77,7 +76,7 @@ int main()
                 cout << "no";
             }
         }
-    }
 
-    return 0;
+        return 0;
+    }
 }
