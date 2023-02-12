@@ -10,25 +10,22 @@ int main()
 
     ios_base::sync_with_stdio(false);
 
-    ll a, b;
-    cin >> a >> b;
-    vector<ll> v;
-
-    for (ll i = 0; i < a; i++)
-    {
-        ll c;
-        cin >> c;
-        v.emplace_back(c);
+    int a,b; cin>>a>>b;
+    vector<int> v;
+    for(int i=0; i<a; i++){
+        int b; cin>>b;
+        v.emplace_back(b);
     }
-
-    sort(v.begin(), v.end());
-    ll sum = 0;
-    for (ll i = 0; i < a; i++)
-    {
-        sum += b * v[i];
-        (b > 1) ? b-- : b = 1;
+    sort(v.begin(),v.end());
+    int sum=0;
+    for(auto it:v){
+        sum+=it*b;
+        if(b>1){
+            b--;
+        }
     }
-    cout << sum;
-
+    cout<<sum<<endl;
+    
+    
     return 0;
 }
