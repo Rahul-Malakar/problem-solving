@@ -24,30 +24,15 @@ int main()
     ios_base::sync_with_stdio(false);
 
     int a; cin>>a;
-    vi v;
-    for(int i=0; i<a; i++){
-        int b; cin>>b;
-        if(b==1){
-            v.eb(i);
-        }
-    }
     
-    int ans=1;
-    for(int i=1; i<v.size(); i++){
-        if(v[i]-v[i-1]<=2){
-            ans+=v[i]-v[i-1];
-        }
-        else{
-            ans+=2;
-        }
-
+    ll ce=0, co=0;
+    for(int i=0; i<a; i++){
+        ll b; cin>>b;
+        if(b&1){co++;}
+        else{ce++;}
+        
     }
-    if(v.size()){
-        cout<<ans<<endl;
-    }
-    else{
-        cout<<ans-1<<endl;
-    }
+    cout<<min(ce,co)<<endl;
 
 
     return 0;
