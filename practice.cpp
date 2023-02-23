@@ -1,39 +1,37 @@
-//RAHUL MALAKAR 2112022
-
-#include <bits/stdc++.h>
-using namespace std;
-
-#define ll long long
-
-int main()
-{
-    vector<string> strs{"r","ror","lol"};
-    map<char, int> m;
-        for(int i=0; i<strs.size(); i++){
-            for(int j=0; j<strs[i].size(); j++){
-                m[strs[i][j]]++;
+class Solution {
+public:
+    int shipWithinDays(vector<int>& weights, int days) {
+        int l = 0;
+        int r = 0;
+        for(int i : weights){
+            l = max(l, i);
+            r += i;
+        }
+        int mid;
+        int ans = r;
+        while(l <= r){
+            mid = (l + r) / 2;
+            if(check(weights, days, mid)){
+                ans = mid;
+                r = mid - 1;
+            } else {
+                l = mid + 1;
             }
         }
-    string temp="";
-    for(auto const &pair:m){
-        if(pair.second==strs.size()){
-            temp.push_back(pair.first);
-        }
+        return ans;
     }
 
-    string ans="";
-    for(int i=0; i<strs[0].size(); i++){
-        for(int j=0; j<temp.size(); j++){
-            if(strs[0][i]==temp[j]){
-                ans+=temp[j];
-                
+    bool check(vector<int>& weights, int days, int capacity){
+        int reqdays = 1;
+        int cur = 0;
+        for(int i : weights){
+            if(cur + i > capacity){
+                reqdays++;
+                cur = 0;
             }
+            cur += i;
         }
+        if(reqdays > days) return false;
+        return true;
     }
-    cout<<ans<<endl;
-    
-
-    
-
-    return 0;
-}
+};
