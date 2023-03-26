@@ -18,39 +18,59 @@ using namespace std;
 #define sortd(v) sort(v.rbegin(), v.rend())
 
 int solve(vector<int> v, vector<int> dp, int n, int k){
-    if(n==0){
+    if(n<=0){
         return 0;
     }
-    if(dp[n]!=-1){
+    if(dp[n]!=INT_MAX){
         return dp[n];
     }
-    int steps=INT_MAX;
-    for(int i=1; i<=k; i++){
-        if(n-i>=0){
-            int jump = solve(v, dp, n-i, k) + abs(v[n]-v[n-i]);
-            steps = min(steps, jump);
+    for(int i=1; i<=k ; i++){
+        if(n>i-1){
+            dp[n] = min(dp[n], solve(v,dp, n-i, k) + abs(v[n] - v[n-i]));
         }
+        
     }
-    dp[n]=steps;
-    return dp[n];
+    return dp[n-1];
+    
+    
 }
+
 
 int main()
 {
     
     ios_base::sync_with_stdio(false);
-
     
-    ll t,k;
-    cin >> t >> k;
-    vector<int> v, dp(t+1, -1);
-    for(int i=0; i<t; i++)
+    ll n,k;
+    cin >> n >> k;
+    vector<int> v, dp(n+1, INT_MAX);
+    for(int i=0; i<n; i++)
     {
         int a; cin>>a;
         v.eb(a);
     }
 
-    cout<<solve(v, dp , t, k);
+    // cout<<solve(v, dp , n, k);
+    
+    // dp[0] = 0;
+    // for (int i = 1; i < n; i++) {
+    //     for (int j = 1; j <= k; j++) if (i-j >= 0){
+    //         dp[i] = min(dp[i], dp[i-j] + abs(v[i] - v[i-j]));
+    //     }
+    // }
+    // cout<<dp[n-1];
+
+    dp[0]=0;
+    for(int i=1; i<n; i++){
+        for(int j=1; j<=k; j++){
+            if(i-j>=0){
+                dp[i]=min(dp[i], dp[i-j] + abs(v[i]-v[i-j]));
+            }
+            
+        }
+         
+    }
+    cout<<dp[n-1];
 
     return 0;
 }
