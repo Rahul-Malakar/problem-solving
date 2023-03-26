@@ -17,6 +17,23 @@ using namespace std;
 #define sorti(v) sort(v.begin(), v.end())
 #define sortd(v) sort(v.rbegin(), v.rend())
 
+int dp[100][100];
+
+int solve(vector<int> v1, vector<int> v2, int i, int pre){
+
+    int pick,dontpick;
+    if(i==0){
+        return 0;
+    }
+    if(pre==0){
+        int pick = solve(v1,v2,i-1,1) + v1[i];
+        int dontpick = max(solve(v1,v2,i-1,0), solve(v1,v2,i-1,1));
+    }
+    
+    dp[i][pre] = max(pick,dontpick);
+    
+}
+
 
 int main()
 {
@@ -34,7 +51,7 @@ int main()
         v2.eb(c);
     }
 
-    
+    solve(v1,v2,0,0);
     
 
     return 0;
