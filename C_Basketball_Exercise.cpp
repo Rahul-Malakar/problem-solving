@@ -17,21 +17,27 @@ using namespace std;
 #define sorti(v) sort(v.begin(), v.end())
 #define sortd(v) sort(v.rbegin(), v.rend())
 
-int dp[100][100];
+long long solve(vector<long long> &v1, vector<long long> &v2, long long i, long long pre, vector<vector<long long>> &dp){
 
-int solve(vector<int> v1, vector<int> v2, int i, int pre){
-
-    int pick,dontpick;
     if(i==0){
-        return 0;
+        if(pre==0){
+            return dp[i][pre]=v1[0];
+        }
+        else{
+            return dp[i][pre]=v2[0];
+        }
     }
-    if(pre==0){
-        int pick = solve(v1,v2,i-1,1) + v1[i];
-        int dontpick = max(solve(v1,v2,i-1,0), solve(v1,v2,i-1,1));
+
+    if(dp[i][pre]!=-1){
+        return dp[i][pre];
     }
     
-    dp[i][pre] = max(pick,dontpick);
+        dp[i][0] = max(v1[i] + solve(v1,v2, i-1, 1, dp), solve(v1,v2,i-1,0,dp));
+        dp[i][1] = max(v2[i] + solve(v1,v2, i-1, 0, dp), solve(v1,v2,i-1,1,dp));
     
+
+    return max(dp[i][0], dp[i][1]);
+
 }
 
 
@@ -40,19 +46,28 @@ int main()
     
     ios_base::sync_with_stdio(false);
 
-    int a; cin>>a;
-    vector<int> v1,v2;
-    for(int i=0; i<a; i++){
-        int b; cin>>b;
+    long long a; cin>>a;
+    vector<long long> v1,v2;
+    for(long long i=0; i<a; i++){
+        long long b; cin>>b;
         v1.eb(b);
     }
-    for(int i=0; i<a; i++){
-        int c; cin>>c;
+    for(long long i=0; i<a; i++){
+        long long c; cin>>c;
         v2.eb(c);
     }
 
-    solve(v1,v2,0,0);
-    
+    // vector<vector<long long>> dp(a+1, vector<long long>(2,-1));
 
-    return 0;
+    // cout<<max(solve(v1,v2,a-1,0, dp), solve(v1,v2,a-1,1, dp));
+
+    vector<vector<long long>> dp(a+1, vector<long long>(2,0));
+    
+    dp[0][0] =  v1[0]; dp[0][1]=v2[0];
+    for(int i=1; i<a; i++){
+        dp[i][0] = max(dp[i-1][1] + v1[i], dp[i-1][0]);
+        dp[i][1] = max(dp[i-1][0] + v2[i], dp[i-1][1]);
+    }
+ 
+    cout<<max(dp[a-1][0],dp[a-1][1]);
 }
