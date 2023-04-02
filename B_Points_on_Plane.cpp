@@ -38,6 +38,7 @@ int main()
             else{
                 l=mid;
             }
+            
         }
         cout<<r-1<<endl;
     }
