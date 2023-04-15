@@ -1,5 +1,5 @@
 //RAHUL MALAKAR 2112022
-//asdfasdfad
+
 #include <bits/stdc++.h>
 using namespace std;
 
@@ -16,7 +16,6 @@ using namespace std;
 
 #define sorti(v) sort(v.begin(), v.end())
 #define sortd(v) sort(v.rbegin(), v.rend())
-
 
 int main()
 {
