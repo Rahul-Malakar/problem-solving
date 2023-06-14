@@ -17,19 +17,18 @@ using namespace std;
 #define sorti(v) sort(v.begin(), v.end())
 #define sortd(v) sort(v.rbegin(), v.rend())
 
-int fib(int n){
-    if(n<=1){
-        return 1;
-    }
-    n = n * fib(n-1);
-}
-
 int main()
 {
     
     ios_base::sync_with_stdio(false);
 
-    cout<<fib(5);
+    ll t;
+    cin >> t;
+    while(t--)
+    {
+        int a,b; cin>>a>>b;
+        cout<<(b/2 +1)<<endl;
+    }
 
     return 0;
 }
