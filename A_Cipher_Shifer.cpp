@@ -25,7 +25,25 @@ int main()
     ll t; cin>>t;
     while (t--)
     {
-        
+        int a; cin>>a;
+        string s; cin>>s;
+        string ans;
+        char cur;
+        int flag=0;
+        for(int i=0; i<a; i++){
+            if(flag==0){
+                ans+=s[i];
+                cur = s[i];
+                flag=1;
+            }
+            else{
+                if(s[i]==cur){
+                    flag=0;
+                }
+            }
+        }
+        cout<<ans<<endl;
+
     }
     
 
