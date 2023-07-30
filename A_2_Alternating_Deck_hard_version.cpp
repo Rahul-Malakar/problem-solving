@@ -25,6 +25,8 @@ int main()
 
     ll t;
     cin >> t;
+    vector<int> v;
+    sort(v.begin(), v.end());
     while(t--)
     {
         ll a; cin>>a;
