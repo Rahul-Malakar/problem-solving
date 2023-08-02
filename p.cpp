@@ -17,19 +17,29 @@ using namespace std;
 #define sorti(v) sort(v.begin(), v.end())
 #define sortd(v) sort(v.rbegin(), v.rend())
 
-int fib(int n){
-    if(n<=1){
-        return 1;
+ string removeOuterParentheses(string s) {
+        if(s == "" || s== "()"){
+            return "";
+        }
+        string ans="";
+        stack<int> st;
+        st.push(s[0]);
+        for(int i=1; i<s.size(); i++){
+            if(s[i]==')' && ans[ans.size()-1]==')' && !st.empty()){
+                st.pop();
+            }
+            else if(st.empty() && s[i]=='('){
+                st.push(s[i]);
+            }
+            else{
+                ans+=s[i];
+            }
+        }
+        return ans;
     }
-    n = n * fib(n-1);
-}
 
-int main()
-{
-    
-    ios_base::sync_with_stdio(false);
+int main(){
 
-    cout<<fib(5);
-
-    return 0;
+    string s = "()()";
+    cout<<(removeOuterParentheses(s));
 }
