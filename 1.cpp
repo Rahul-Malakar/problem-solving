@@ -13,7 +13,7 @@ long long factorial(long long n)
 
 int main()
 {
-    cout<<"enter"<<endl;
+    cout << "enter" << endl;
     long long t;
     cin >> t;
     while (t--)
@@ -22,7 +22,6 @@ int main()
 
         cin >> n;
         cout << factorial(n) << endl;
-        
     }
     return 0;
 }
