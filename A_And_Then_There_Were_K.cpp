@@ -23,7 +23,20 @@ int main()
     ll t; cin>>t;
     while (t--)
     {
-        
+        int n; cin>>n;
+        int lage = log2(n);
+        lage = 1<<lage;
+        if(n&1){
+            cout<<lage-1<<endl;
+        }
+        else{
+            if((lage & (lage-1) )== 0){
+                cout<<lage-1<<endl;
+            }
+            else{
+                cout<<lage<<endl;
+            }
+        }
     }
     
 

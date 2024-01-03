@@ -23,7 +23,26 @@ int main()
     ll t; cin>>t;
     while (t--)
     {
+        int a,b,c; cin>>a>>b>>c;
+        if(b<a){
+            cout<<"NO"<<endl;
+            continue;
+        }
+        if(b>= 2*a){
+            cout<<"YES"<<endl;
+            continue;
+        }
+        int extra = b - a;
+        c += 3*(extra);
+        if(c/3 >= a){
+            cout<<"YES"<<endl;
+        }
+        else{
+            cout<<"NO"<<endl;
+        }
         
+
+
     }
     
 

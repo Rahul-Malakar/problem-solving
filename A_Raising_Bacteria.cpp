@@ -1,5 +1,3 @@
-//RAHUL MALAKAR 2112022
-
 #include <bits/stdc++.h>
 using namespace std;
 
@@ -17,24 +15,13 @@ using namespace std;
 #define sorti(v) sort(v.begin(), v.end())
 #define sortd(v) sort(v.rbegin(), v.rend())
 
-int main(){
-
-    vector<int> list = {1,2,3,4,4,5,6,7,8,9};
-
-    int sum1 =0, sum2=0;
-
-    for(auto it:list){
-        sum1 = sum1 + it;
-    }
-
-    int n = 9;
-
-    sum2 = (n*(n+1))/2;
-
-    cout<<"welcome to the website sir"<<endl;
-
-    cout<< "The number occuring twice is " <<sum1-sum2<<endl;
-
+int main()
+{
+    
+    ios_base::sync_with_stdio(false);
+    
+    ll t; cin>>t;
+    cout<<__builtin_popcount(t);
 
     return 0;
 }

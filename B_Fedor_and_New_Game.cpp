@@ -1,3 +1,5 @@
+//RAHUL MALAKAR 2112022
+
 #include <bits/stdc++.h>
 using namespace std;
 
@@ -20,12 +22,24 @@ int main()
     
     ios_base::sync_with_stdio(false);
     
-    ll t; cin>>t;
-    while (t--)
-    {
-        
+    ll n,m,k;
+    cin>>n>>m>>k;
+    vector<ll> ms;
+    ll last;
+    for(ll i=0; i<=m; i++){
+        ll a; cin>>a;
+        ms.eb(a);
     }
-    
+    last = ms[ms.size()-1];
+    ll count =0;
+    for(int i=0; i<m; i++){
+        int cur = ms[i]^last;
+        if(__builtin_popcount(cur)<=k){
+            count++;
+        }
+    }
+    cout<<count;
+
 
     return 0;
 }
