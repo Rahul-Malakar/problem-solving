@@ -23,49 +23,27 @@ int main()
     ll t; cin>>t;
     while (t--)
     {
-        int a; cin>>a;
-        if(a==1){
-            cout<<1<<endl;
-            continue;
+        int n; cin>>n;
+        vector<int> v(n);
+        for(int i=0; i<n; i++){
+            cin>>v[i];
         }
-        vi v;
-        for(int i=0; i<a; i++){
-            int b; cin>>b;
-            v.eb(b);
-        }
-        vector<int> st;
-        st.push_back(v[a-1]);
-        int ind = a-2;
-        while(ind>=0){
-            while(st[st.size()-1]>v[ind] && st.size()>0){
-                // for(auto it:st){
-                //     cout<<it<<" ";
-                // }
-                // cout<<endl;
-                st.pop_back();
-            }
-            // cout<<ind<<"%";
-            st.push_back(v[ind]);
-            ind--;
-        }
-        int kata = 0;
-        int maxi = 0;
-        int lage = 0;
-        // for(auto it:st){
-        //     cout<<it<<" ";
-        // }
-        // cout<<endl;
-        for(int i=st.size()-1; i>=0; i--){
-            if((i+1 - st[i])>maxi){
-                maxi = i+1 - st[i];
-                kata = i+1;
-                lage = st[i];
+        vector<int> t;
+        int x =v[0];
+        for(int i=0; i<n; i++){
+            if(v[i]<=x){
+                t.eb(v[i]);
+                x = min(x,v[i]);
             }
         }
-        cout<<lage+a-kata<<endl;
-    
+        int ans =n;
+        int m = t.size();
+        for(int i=m-1; i>=0; i--){
+            ans = min(ans, t[i]+n-m+i);
+        }
+        cout<<ans<<endl;
+           
     }
     
-
     return 0;
 }
