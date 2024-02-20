@@ -23,12 +23,26 @@ int main()
     ll t; cin>>t;
     while (t--)
     {
-        int n; cin>>n;
-        vi v;
-        for(int i=0; i<n; i++){
-            int a; cin>>a;
-            v.eb(a);
+        int a; cin>>a;
+        if(a==1){
+            cout<<1<<' '<<1<<endl;
+            continue;
         }
+        if(a&1){
+            cout<<(a+1)/2<<" ";
+        }
+        else{
+            cout<<(a/2)<<" ";
+        }
+
+        if(a%3==0){
+            cout<<a/3<<endl;
+        }
+        else{
+            cout<<(a/3)+1<<endl;
+        }
+
+
     }
     
 
