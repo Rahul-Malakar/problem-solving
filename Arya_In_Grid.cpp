@@ -23,7 +23,19 @@ int main()
     ll t; cin>>t;
     while (t--)
     {
-        
+        ll n; cin>>n;
+        ll m; cin>>m;
+        ll r; cin>>r;
+        ll c; cin>>c;
+        ll j; cin>>j;
+
+        ll up = (r-1)/j;
+        ll down = (n-r)/j;
+        ll right = (m-c)/j;
+        ll left = (c-1)/j;
+
+        ll first = up+down+1, second = left+right+1;
+        cout<<first*second<<endl;
     }
     
 

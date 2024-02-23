@@ -24,6 +24,17 @@ int main()
     while (t--)
     {
         
+        int maxi =0;
+        int ans=0;
+        for(int i=0; i<22; i++){
+            int run; cin>>run;
+            int wic; cin>>wic;
+            if(((20*wic)+run) > maxi){
+                maxi = (wic*20)+run;
+                ans = i+1;
+            }
+        }
+        cout<<ans<<endl;
     }
     
 
