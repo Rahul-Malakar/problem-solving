@@ -17,15 +17,24 @@ using namespace std;
 
 int main()
 {
-
-    freopen("filename.in", "r", stdin);
-	freopen("filename.out", "w", stdout);
     
-    ios_base::sync_with_stdio(false);
-    int t; cin>>t;
-    while(t--){
-        
-    }
+    freopen("teleport.in", "r", stdin);
+	freopen("teleport.out", "w", stdout);
+
+    int a,b,c,d; cin>>a>>b>>c>>d;
+
+    int lc = min(a,b);
+    int rc = max(a,b);
+
+    int actual = rc-lc; 
+
+    int left = min(c,d);
+    int right = max(c,d);
+    int tele = abs(lc-left) + abs(right-rc);
+
+    
+
+    cout<<min(actual,tele);
 
     return 0;
 }

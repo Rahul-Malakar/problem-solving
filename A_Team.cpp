@@ -18,14 +18,18 @@ using namespace std;
 int main()
 {
 
-    freopen("filename.in", "r", stdin);
-	freopen("filename.out", "w", stdout);
+    
     
     ios_base::sync_with_stdio(false);
     int t; cin>>t;
+    int count =0;
     while(t--){
-        
+        int a,b,c; cin>>a>>b>>c;
+        if(a+b+c>1){
+            count++;
+        }
     }
+    cout<<count;
 
     return 0;
 }

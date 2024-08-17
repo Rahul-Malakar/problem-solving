@@ -17,15 +17,15 @@ using namespace std;
 
 int main()
 {
-
-    freopen("filename.in", "r", stdin);
-	freopen("filename.out", "w", stdout);
     
     ios_base::sync_with_stdio(false);
     int t; cin>>t;
-    while(t--){
-        
+    
+    if(t&1){
+        cout<<"NO";
+        return 0;
     }
+    cout<<"YES";
 
     return 0;
 }
