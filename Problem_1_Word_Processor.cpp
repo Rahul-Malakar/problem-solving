@@ -18,27 +18,33 @@ using namespace std;
 int main()
 {
 
-    // freopen("word.in", "r", stdin);
-	// freopen("word.out", "w", stdout);
+    freopen("word.in", "r", stdin);
+	freopen("word.out", "w", stdout);
     
     ios_base::sync_with_stdio(false);
     int n, x; cin>>n>>x;
-    string sentence = "";
     int count = x;
-    for (int i = 0; i < n; i++)
-    {
+    string sentence = "";
+    vector<string> lines;
+    
+    while(n--){
         string s; cin>>s;
-        sentence += s + " ";
-        count-=s.size();
         if(s.size()>count){
+            sentence.pop_back();
+            lines.push_back(sentence);
+            sentence = "";
             count = x;
-            cout<<endl;
         }
+        sentence+= s + " ";
+        count-=s.size();
+
     }
-    
     sentence.pop_back();
-    cout<<sentence;
-    
+    lines.push_back(sentence);
+
+    for(auto it:lines){
+        cout<<it<<endl;
+    }
 
     return 0;
 }
